@@ -1,18 +1,13 @@
 import Ember from 'ember';
+import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(ApplicationRouteMixin, {
 	model() {
-		return Ember.$.getJSON({
-			url: "api/places/"
-		});
-		//).then(function (placeList){
-			//console.log(placeList);
-			//placeList.forEach(function(place){
-			//	this.store.createRecord('place', {
-			//		fieldname: place.fieldname
-			//	} )
-			//});
-			//this.store.createRecord('place', )
-		//});
+		// Does this need to match urls.py: router.register("places", PlaceViewSet) ?
+		return this.store.findAll('place');
+		/*return this.get('ajax').request('api/places/', {
+			method: 'GET',
+			dataType: 'html'
+		});*/
 	}
 });

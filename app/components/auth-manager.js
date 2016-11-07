@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	session: Ember.inject.service('session'),
+	authManager: Ember.inject.service('session'),
 
 	actions: {
 		invalidateSession() {
@@ -9,9 +9,11 @@ export default Ember.Component.extend({
 		},
 
 		authenticate() {
-			let { username, password } = this.getProperties('username', 'password');
-			this.get('session').authenticate('authenticator:drf-token-authenticator', username, password).catch((reason) => {
-				this.set('error', reason);
+			const {login, password} = this.getProperties('login', 'password');
+			this.get('authManager').authenticate('authenticator:oauth2', login, password).then(() => {
+				alert('Success!');
+			}, (err) => {
+				alert('Error obtaining token: ' + err.responseText);
 			});
 		}
 	}

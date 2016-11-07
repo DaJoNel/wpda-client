@@ -3,7 +3,7 @@
 	<button type="button" class="btn btn-default" {{action 'invalidateSession'}}>Logout</button>
 </p>
 {{else}}
-<form class="form-inline auth-form" {{action 'authenticate' on='submit'}}>
+<form class="form-inline auth-form" {{action 'authenticate'}}>
 	<div class="form-group">
 		<label class="control-label" for="username">Login</label>
 		{{input class="form-control auth-field" id="username" placeholder="Enter Username" value=username}}
