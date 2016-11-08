@@ -19,7 +19,11 @@
     <tbody>
     {{#each model as |place|}}
         <tr>
-            <td>{{place.isVerified}}</td>
+            {{#if place.isVerified}}
+            <td><input type="checkbox" checked disabled></td>
+            {{else}}
+            <td><input type="checkbox" disabled></td>
+            {{/if}}
             <td><a href="{{place.permalink}}">{{place.name}}</a></td>
             <td>{{place.number}}</td>
             <td>{{place.street}}</td>
@@ -28,7 +32,11 @@
             <td>{{place.categories}}</td>
             <td>{{place.updatedBy}} on {{place.updatedOn}}</td>
             <td>{{place.lockLevel}}</td>
-            <td>{{place.isResidential}}</td>
+            {{#if place.isResidential}}
+            <td><input type="checkbox" checked disabled></td>
+            {{else}}
+            <td><input type="checkbox" disabled></td>
+            {{/if}}
         </tr>
     {{/each}}
     </tbody>
