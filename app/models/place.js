@@ -12,8 +12,10 @@ export default DS.Model.extend({
 	city: DS.attr('string'),
 	state: DS.attr('string'),
 	country: DS.attr('string'),
+	createdBy: DS.attr('string'),
+	createdOn: DS.attr('date'),
 	updatedBy: DS.attr('string'),
 	updatedOn: DS.attr('date'),
-	userReportOn: DS.attr('date'),
+	updateRequest: DS.attr('boolean'),
 	isResidential: DS.attr('boolean')
 });

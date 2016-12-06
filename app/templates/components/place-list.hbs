@@ -11,8 +11,10 @@
             <th>City</th>
             <th>State</th>
             <th>Categories</th>
-            <th>Last Updated</th>
+            <th>Created</th>
+            <th>Updated</th>
             <th>Lock Level</th>
+            <th>PUR?</th>
             <th>Residential?</th>
         </tr>
     </thead>
@@ -30,8 +32,14 @@
             <td>{{place.city}}</td>
             <td>{{place.state}}</td>
             <td>{{place.categories}}</td>
+            <td>{{place.createdBy}} on {{place.createdOn}}</td>
             <td>{{place.updatedBy}} on {{place.updatedOn}}</td>
             <td>{{place.lockLevel}}</td>
+            {{#if place.updateRequest}}
+            <td><input type="checkbox" checked disabled></td>
+            {{else}}
+            <td><input type="checkbox" disabled></td>
+            {{/if}}
             {{#if place.isResidential}}
             <td><input type="checkbox" checked disabled></td>
             {{else}}

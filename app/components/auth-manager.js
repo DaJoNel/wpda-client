@@ -1,20 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	authManager: Ember.inject.service('session'),
-
+	auth: Ember.inject.service('auth-manager'),
 	actions: {
-		invalidateSession() {
-			this.get('session').invalidate();
+		login: function() {
+			this.get('auth').login();
 		},
-
-		authenticate() {
-			const {login, password} = this.getProperties('login', 'password');
-			this.get('authManager').authenticate('authenticator:oauth2', login, password).then(() => {
-				alert('Success!');
-			}, (err) => {
-				alert('Error obtaining token: ' + err.responseText);
-			});
+		logout: function() {
+			this.get('auth').logout();
 		}
 	}
 });
