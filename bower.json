@@ -2,10 +2,10 @@
   "name": "wpda-client",
   "dependencies": {
     "ember": "lts-2-8",
-    "ember-cli-shims": "0.1.3",
+    "ember-cli-shims": "0.1.1",
     "bootstrap": "~3.3.5"
-  },
-  "resolutions": {
+},
+"resolutions": {
     "ember": "lts-2-8"
   }
 }
