@@ -5,6 +5,7 @@ module.exports = function(environment) {
 		modulePrefix: 'wpda-client',
 		environment: environment,
 		rootURL: '/',
+		routerRootURL: '/',
 		locationType: 'auto',
 		EmberENV: {
 			FEATURES: {
@@ -43,7 +44,7 @@ module.exports = function(environment) {
 	}
 
 	if (environment === 'production') {
-
+		ENV.rootURL = "static/ember/"
 	}
 
 	return ENV;

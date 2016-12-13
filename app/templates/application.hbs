@@ -1,13 +1,8 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="#">WPDA</a>
-		</div>
-		<div class="navbar-right">
-			{{auth-manager}}
-		</div>
-	</div>
-</nav>
+{{nav-bar}}
 <div class="container-fluid">
-	{{place-list model=model}}
+	{{outlet}}
+	<div class="clr"></div>
+	<footer>
+	    <p>Copyright &copy; 2016 David Nelson</p>
+	</footer>
 </div>

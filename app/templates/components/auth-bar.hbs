@@ -1,0 +1,27 @@
+{{#if auth.isLoggedIn}} {{! Display user name and logout button}}
+<form class="navbar-form">
+	<label class="control-label" for="logout">Hello, {{auth.user.username}}</label>
+	<button type="button" name="logout" class="btn btn-default" {{action "logout"}}>Log out</button>
+</form>
+{{else}} {{!Display login page}}
+<form class="navbar-form">
+	{{#if auth.errorMsg}}
+		<div class="auth-error alert">
+			{{auth.errorMsg}}
+		</div>
+	{{/if}}
+	{{input type="text" class="input form-control auth-field" value=auth.username enter="login" placeholder="Username"}}
+	{{input type="text" class="input form-control auth-field" value=auth.password enter="login" placeholder="Password" type="password"}}
+	{{input class="checkbox" type="checkbox" checked=auth.remember name="remember"}}
+	<label class="control-label checkbox" for="remember">Remember me</label>
+	<button type="button" class="btn btn-default" {{action "login"}}>Login</button>
+	<br>
+	<p class="no-account right margin-3">Don't have an account?
+		{{#link-to "register"}}Register now.{{/link-to}}
+		<a class="glyphicon glyphicon-info-sign info-icon" {{action "showRegInfo"}}></a>
+	</p>
+</form>
+{{#bs-modal open=showRegInfo title="Why register?" footer=false}}
+	<p>Register to WPDA in order to save custom queries, watch specific venues for changes, and more.</p>
+{{/bs-modal}}
+{{/if}}

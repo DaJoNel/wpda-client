@@ -7,6 +7,14 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('login');
+  this.route('register');
+  this.route('admin', function() {
+      this.route('users');
+      this.route('user', {path: "/users/:user_id"});
+  });
+  this.route('home');
+  this.route('watch-place');
   this.route('profile');
 });
 
